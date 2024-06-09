@@ -5,39 +5,37 @@ import LoginScreen from "./Screens/LoginScreen";
 import HomeScreen from "./Screens/HomeScreen";
 import ForgetPassword from "./Screens/ForgetPassword";
 import CreateNewAccount from "./Screens/CreateNewAccount";
-//import CountryCodeInput from "./Screens/CountryCodeInput";
-//import PrivacyTermsScreen from "./Screens/PrivacyTermsScreen";
-//import HomeScreen from "./Screens/HomeScreen";
+import CreateOrganization from "./Screens/CreateOrganization";
+import OrganizationScreen from "./Screens/OrganizationScreen";
+import ChatScreen from "./Screens/ChatScreen"; 
+import CreateChannelScreen from "./Screens/CreateChannelScreen";
+
+
 
 const Stack = createStackNavigator();
 
 const screens = [
-  { name: "Login", component: LoginScreen  },
-  { name: "Home", component: HomeScreen  },
-  { name: "CreateAccount", component: CreateNewAccount  },
-  { name: "ForgetPassword", component: ForgetPassword  },
- // { name: "CountryCodeInput", component: CountryCodeInput  },
-  //{ name: "PrivateTermsScreen", component: PrivateTermsScreen  },
+  { name: "Login", component: LoginScreen },
+  { name: "Home", component: HomeScreen },
+  { name: "CreateAccount", component: CreateNewAccount },
+  { name: "ForgetPassword", component: ForgetPassword },
+  { name: "CreateOrganization", component: CreateOrganization },
+  { name: "OrganizationScreen", component: OrganizationScreen },
+  { name: "Chat", component: ChatScreen },
+  { name: "CreateChannelScreen", component: CreateChannelScreen },
 ];
 
-
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="CreateOrganization"
         screenOptions={{ headerShown: false }}
       >
         {screens.map((screen, index) => (
-          <Stack.Screen
-            key={index}
-            name={screen.name}
-            component={screen.component}
-          />
+          <Stack.Screen key={index} name={screen.name} component={screen.component} />
         ))}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
